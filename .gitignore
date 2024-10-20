@@ -1,3 +1,5 @@
+# Cmake generated files 
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -10,3 +12,14 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+
+# Doxygen-generated documentation
+docs/api/html/
+docs/api/latex/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Tests output 
+tests/__pycache__
