@@ -1,37 +1,42 @@
-# Sim8086
+# Custom Language and CPU Emulator with Optional Optimization Platform
 
-Sim8086 is an emulator for the Intel 8086 microprocessor, written in C++ and Assembly with Python bindings for testing.
+## Overview
 
-## Project Status
+This project involves creating a custom programming language and a CPU emulator capable of executing binaries compiled from this language. Additionally, it features an optional injection platform that performs runtime profiling and hot-swapping of optimized code segments. The system allows for flexible execution:
 
-This project is in the initial development phase. This means that substantial infrastructure, functionality and documentation
-hasn't is not yet implemented or even designed.
+- **Standard Mode**: Run the emulator with minimal overhead using the raw binaries.
+- **Optimized Mode**: Enable the injection platform for dynamic optimizations and improved performance.
 
-## Table of Contents
+## Goals
 
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-- [Documentation](#documentation)
+- **Learning Experience**: Deepen understanding of language design, compiler construction, CPU emulation, and dynamic code optimization.
+- **Flexibility**: Provide a system that can run efficiently in both low-resource environments and high-performance scenarios.
+- **Creativity**: Offer the freedom to experiment with language features, CPU architecture, and optimization techniques.
 
-## Introduction
+## Project Structure
 
-Sim8086 is designed to simulate the behavior of the 8086 CPU, including its instruction set, registers, memory management, and interrupts. 
-The project is written in C++ with assembly optimizations and provides Python bindings using Pybind11 for testing.
+- **Custom Language**: A simple language with its own syntax and compiler/assembler.
+- **CPU Emulator**: Emulates a CPU that can execute binaries from the custom language.
+- **Injection Platform**: An optional module that profiles and optimizes code at runtime.
 
 ## Getting Started
 
-### Prerequisites
+*(Instructions will be added as the project develops.)*
 
-- **Operating System**: Linux, macOS, or Windows (with appropriate tools)
-- **Compiler**: GCC or Clang with C++11 support
-- **CMake**: Version 3.14 or higher
-- **Python**: Version 3.6 or higher
-- **Python Packages**:
-  - `pybind11`
-  - `pytest`
-  - `hypothesis`
+## Roadmap
 
-## Documentation
+- **Phase 1**: Design the custom language and develop the compiler.
+- **Phase 2**: Build the CPU emulator to execute the compiled binaries.
+- **Phase 3**: Implement the optional injection platform for dynamic optimization.
+- **Phase 4**: Integrate all components and conduct comprehensive testing.
+- **Phase 5**: Document the project and expand features.
 
-Documentation is not yet available.
+## Contributing
+
+*(Contribution guidelines will be added in the future.)*
+
+## License
+
+*(License information will be added once decided.)*
+
+

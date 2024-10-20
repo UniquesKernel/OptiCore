@@ -1,0 +1,24 @@
+\newcommand{\authorName}{Author Name}
+\newcommand{\titleName}{Project Title}
+\newcommand{\subject}{Subject title}
+\newcommand{\project}{Project}
+\begin{titlepage}
+  \centering
+    \title
+    {
+      \scale{2}{\rule{\linewidth}{\sol pt}}
+      \Huge \textbf{\titleName}\\
+      \scale{\numberSQRTTWO}{\vspace{\sol pt}}
+      \LARGE \textit{\subject}
+      \scale{\numberSQRTTWO}{\rule{\linewidth}{\sol pt}}
+
+      \scale{.5}{\vspace{-\sol em}}
+      \textbf{\project}
+      \scale{10}{\vspace{\sol em}}
+      \author
+    {
+      \LARGE Author: \textit{\authorName}
+    }
+      \date{\LARGE Date: \today}
+    }
+\end{titlepage}
