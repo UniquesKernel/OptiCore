@@ -1,8 +1,8 @@
 # Define build directory, executable, and module
 BUILD_DIR = build
-EXECUTABLE = 8086_sim
+EXECUTABLE = optiCore
 PYTHON_MODULE_DIR = $(BUILD_DIR)/lib
-PYTHON_MODULE = sim8086_py
+PYTHON_MODULE = optiCore_py
 
 # Phony targets
 .PHONY: all clean test run build-run refresh docs

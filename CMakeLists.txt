@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 # Project definition
-project(Sim8086
+project(optiCore
   VERSION 0.1
   LANGUAGES C CXX ASM
 )
@@ -43,14 +43,14 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # Create the executable from all sources
-add_executable(Sim8086 ${MAIN_SOURCE} ${C_SOURCES} ${ASM_SOURCES} ${CXX_SOURCES})
+add_executable(optiCore ${MAIN_SOURCE} ${C_SOURCES} ${ASM_SOURCES} ${CXX_SOURCES})
 
 # Python execution for running hypothesis tests
 find_package(pybind11 REQUIRED)
 find_program(PYTHON_EXEC python3 REQUIRED)
 
 # Create the Python module
-pybind11_add_module(sim8086_py
+pybind11_add_module(optiCore_py
   ${C_SOURCES}
   ${CXX_SOURCES}
   ${ASM_SOURCES}
@@ -71,12 +71,12 @@ add_custom_target(
 # Ensure the shared library is built before running tests
 add_dependencies(run_tests _testing_bundle)
 # Ensure the Python module is built before running tests
-add_dependencies(run_tests sim8086_py)
+add_dependencies(run_tests optiCore_py)
 
 # Copy compile_commands.json after build if required
 if(CMAKE_EXPORT_COMPILE_COMMANDS)
   add_custom_command(
-    TARGET Sim8086 POST_BUILD
+    TARGET optiCore POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
       ${CMAKE_BINARY_DIR}/compile_commands.json
       ${CMAKE_SOURCE_DIR}/compile_commands.json
