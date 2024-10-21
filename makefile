@@ -54,4 +54,4 @@ docs:
 	@echo "Documentation generated in docs/api"
 
 docs-clean:
-	rm -rf docs/api/*
+	rm -rf docs/api/html docs/api/latex
