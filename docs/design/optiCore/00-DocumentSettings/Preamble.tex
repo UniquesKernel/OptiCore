@@ -1,75 +1,108 @@
-%Mathematics
-  \usepackage{amssymb}
-  \usepackage{amsthm}
-  \usepackage{amsmath}
-  \usepackage{calculator}
-  \usepackage{mathtools}
-  \mathtoolsset{showonlyrefs = true}
+% Old School Academic Paper Style Preamble
 
-% Layout and Graphics
-  \usepackage{fancyhdr}
-  \usepackage{hyperref}
-  \usepackage{lastpage}
-  \usepackage{pgf}
-  \usepackage{tikz, tikz-uml}
-  \usepackage[smartEllipses]{markdown}
-  \usepackage{url}
-  \usepackage
-  [
-    left = \numberPI cm,
-    right = \numberPI cm,
-    top = \numberPI cm,
-    bottom = \numberPI cm
-  ]{geometry}
- 
-% Tikz Libraries
-  \usetikzlibrary{arrows.meta}
-  \usetikzlibrary{automata}
-  \usetikzlibrary{backgrounds}
-  \usetikzlibrary{calc}
-  \usetikzlibrary{calendar}
-  \usetikzlibrary{decorations}
-  \usetikzlibrary{er}
-  \usetikzlibrary{folding}
-  \usetikzlibrary{intersections}
-  \usetikzlibrary{matrix}
-  \usetikzlibrary{mindmap}
-  \usetikzlibrary{patterns}
-  \usetikzlibrary{plothandlers}
-  \usetikzlibrary{plotmarks}
-  \usetikzlibrary{shapes}
-  \usetikzlibrary{trees}
+% Mathematics (keeping your original packages)
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{calculator}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs = true}
 
-% Page Layout
-  \pagestyle{fancy}
-  \fancyhf{}
-  \fancyhead[L]{\authorName}
-  \fancyfoot[C]{\leftmark}
-  \fancyhead[R]{\subject}
-  \fancyfoot[R]{\thepage}
+% Layout and Graphics (modified)
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage[margin=1in]{geometry}  % Changed to 1 inch margins
 
-  % Remove Section numbering
-  \makeatletter
-  \renewcommand{\@seccntformat}[1]{}
-  \makeatother
-
-  \renewcommand{\footrulewidth}{\numberGOLD pt}
-  \renewcommand{\headrulewidth}{\numberPI pt}
+% Old-style fonts
+% Font Settings for Old-Style Look
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\ttdefault}
+\usepackage{microtype}  % Improves typography
+\usepackage{mathpazo}  % Palatino font with matching math fonts
+\usepackage[scale=0.95]{cochineal}  % Old-style serif font
+\usepackage[scale=0.95]{cabin}  % Sans-serif font for headers
+\linespread{1.05}  % Slightly increase line spacing for readability
 
 
-% Costume commands
+% Remove packages that are too modern for the old-school look
+% \usepackage{hyperref}
+% \usepackage{pgf}
+% \usepackage{tikz, tikz-uml}
+% \usepackage[smartEllipses]{markdown}
+
+% Tikz Libraries (commented out as they're too modern)
+% \usetikzlibrary{arrows.meta}
+% \usetikzlibrary{automata}
+% \usetikzlibrary{backgrounds}
+% \usetikzlibrary{calc}
+% \usetikzlibrary{calendar}
+% \usetikzlibrary{decorations}
+% \usetikzlibrary{er}
+% \usetikzlibrary{folding}
+% \usetikzlibrary{intersections}
+% \usetikzlibrary{matrix}
+% \usetikzlibrary{mindmap}
+% \usetikzlibrary{patterns}
+% \usetikzlibrary{plothandlers}
+% \usetikzlibrary{plotmarks}
+% \usetikzlibrary{shapes}
+% \usetikzlibrary{trees}
+
+% Page Layout (modified for old-school look)
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\authorName}
+\fancyhead[R]{\subject}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Remove Section numbering (keeping your original code)
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+% Line spacing
+\usepackage{setspace}
+\onehalfspacing  % 1.5 line spacing, common in old papers
+
+% Title styling
+\usepackage{titling}
+\pretitle{\begin{center}\LARGE\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\large \lineskip 0.5em\begin{tabular}[t]{c}}
+\postauthor{\end{tabular}\par\end{center}}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
+
+% Section styling
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+% Custom commands (keeping your original commands)
 \newcommand{\scale}[2]
 {
   \MULTIPLY{\numberGOLD}{#1}{\sol}
   #2
 }
 
-\newcommand{\N}{\mathcal{N}}
-\newcommand{\R}{\mathcal{R}}
-\newcommand{\Z}{\mathcal{Z}}
-\newcommand{\C}{\mathcal{C}}
-\newcommand{\Q}{\mathcal{Q}}
-\newcommand{\F}{\mathcal{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
 
 \newcommand{\methodDoc}[3]
 {
