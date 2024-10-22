@@ -25,6 +25,7 @@ endif()
 
 # Automatically gather all C, ASM, and header files from src and include directories
 file(GLOB_RECURSE C_SOURCES "${PROJECT_SOURCE_DIR}/src/*.c")
+file(GLOB_RECURSE DEFS "${PROJECT_SOURCE_DIR}/src/*.inl")
 file(GLOB_RECURSE CXX_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 file(GLOB_RECURSE BINDINGS "${PROJECT_SOURCE_DIR}/bindings/*.cpp")
 file(GLOB_RECURSE ASM_SOURCES "${PROJECT_SOURCE_DIR}/src/*.s")
