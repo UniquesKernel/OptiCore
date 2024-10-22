@@ -1,3 +1,78 @@
-\section{ Intro }
+\section{ Introduction }
 \label{sec:Introduction}
 
+\simulator{} is a virtualized computational platform designed to abstract
+and explore the core principles of CPU architecture and program optimization.
+By eliminating the complexities of physical hardware, the platform provides
+an accessible environment for analyzing CPU behavior, assembly-level programming,
+and optimization techniques
+
+\vspace{1em}
+
+\noindent The \simulator{} platform consist of the following principal
+components:
+
+\begin{enumerate}
+  \item \textbf{A minimal CPU architecture $\mathcal{A}$:} A custom, minimalistic architecture $\mathcal{A} = (R, M, I, S)$
+    where $R$ denotes a register set, $M$ denotes a memory space, $I$ denotes an instruction 
+    set, and $S$ denotes a state transition function. The architecture is intentionally 
+    constrained to encapsulate the core features of a CPU while abstracting away non-essential
+    complexity. 
+  \item \textbf{Assembler $\mathcal{T} : L \rightarrow B$}: A deterministic mapping $\mathcal{T}$ from the 
+    assembly language $L$ to a binary, but equivalent, representation $B$. where $\forall P \in L, \mathcal{T}(P) = P_{b}$ 
+    and $P_{b} \in B$ is a sequence of binary instructions. This ensures an exact translation of assembly-level
+    instructions to machine code compatible with the architecture $\mathcal{A}$.
+  \item \textbf{Simulator S:} A simulator function $S$, which, when applied to a binary program $P_{b} \in B$,
+    simulates the execution of of the instruction in $P_{b}$ according to the Architecture $\mathcal{A}$. The simulator $S$ defines 
+    the sequence of state transitions $\{S_i\}_{i = 0}^{n}$ corresponding to the instruction sequence $P_b$, where each
+    state $S_k \in S$ is a valid configuration of the registers, memory and program counter.
+  \item \textbf{Optimization Tool $\mathcal{O}(P_{b})$:} A tool $\mathcal{O}$ that applies a 
+    function $\mathcal{O} : B \rightarrow B'$, where $B'$ is a binary program that optimizes $P_{b}$ by reducing
+    the execution time, or resource consumption. The optimization respects the constraints imposed 
+    by the architecture $\mathcal{A}$ and preserves the semantic equivalence of $P_{b}$ and 
+    $B'$, i.e. $S(P_{b}) = S(B')$ in terms of output state.
+\end{enumerate}
+
+\subsection{Custom Assembly and Program Execution}
+\label{subsec:Custom-Assembly}
+
+Users interact with the \simulator{} platform through a custom-designed assembly language $L$.
+Programs $P \in L$ are composed of a sequence of instructions $\{I_i\}_{i = 0}^{n}$, where each 
+instruction, $I_{k}$ conforms to the specifcations of $\mathcal{A}$'s instruction set $I$. The 
+assembler $T$ translate $P$ into its binary Equivalent $P_{b} \in B$, which is subsequently 
+executed by the simulator $S$.
+
+the simulator mimics the behavior of the minimal CPU architecture $\mathcal{A}$, providing the 
+emulation of instruction execution, register manipulation, memory access, and state transtions. 
+Formally, the program $P_{b}$ produces a sequence of states $\{S_i\}_{i=0}^n$, where $S_k = A(S_{k - 1}, I_{k})$,
+and $\mathcal{A}(S,I)$ denotes the state transtions function applied to the current state $S$ under 
+the instruction $I$.
+
+\subsection{Experimental Feature: Optimization Tool}
+\label{subsec:Experimental-Tool}
+
+An experimental feature of the \simulator{} platform is the inclusion of an optimization 
+tool, denoted $\mathcal{O}$. This tool operates in conjuction with the Simulator to analyze the 
+current state of the program $P_{b}$ amd apply optimizations dynamically during the 
+the execution of $P_{b}$. Let $S(t)$ denote the state of the system at time $t$ and let 
+$P_{b}(t)$ represent the portion of the program being executed at time $t$. The optimization 
+function $\mathcal{O}$ attempt to compute and optimize the program state 
+$P'_{b}(t) = \mathcal{O}(P_{b}(t), S(t))$, such that:
+
+\begin{equation}
+  \label{eq:}
+  S(P_{b}) = S(P'_{b}),
+\end{equation}
+
+Where $P'_{b}$ is semantically equivalent to $P_{b}$, but potentially more efficient in terms 
+of execution time or resource consumption. this process aims to emulate the optimization 
+procecss found in strategies such as dynamic code patching, though it is applied within the 
+virtual environmento that is the \simulator{} platform.
+
+The effectiveness and development scope of $\mathcal{O}$ are constrained by two factors; 
+the formal limitations imposed by the architecture $\mathcal{A}$ and the state of development 
+of the \simulator{} platform. If the state of \simulator{} prevents its development, then the 
+development of $\mathcal{O}$ becomes either partial or remains in the realm of theoretical 
+considerations.
+
+\newpage

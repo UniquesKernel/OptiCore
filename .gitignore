@@ -23,3 +23,50 @@ __pycache__/
 
 # Tests output 
 tests/__pycache__
+
+# Ignore LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.gz
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.bbl
+*.brf
+*.idx
+*.ilg
+*.ind
+*.loa
+*.mtc
+*.mtc0
+*.maf
+*.glg
+*.glo
+*.gls
+*.acr
+*.alg
+*.acn
+*.ist
+
+# Ignore PDF and DVI files
+*.pdf
+*.dvi
+
+# Ignore generated bibliography files
+*.bib.bak
+*.bcf
+*.run.xml
+
+# Ignore temporary and backup files
+*~
+*.bak
+*.backup
+*.tmp
+*.swp
+*.swo
+

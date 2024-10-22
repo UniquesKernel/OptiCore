@@ -35,7 +35,6 @@ set(MAIN_SOURCE "${PROJECT_SOURCE_DIR}/main.cpp")
 
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${PROJECT_SOURCE_DIR}/include/Instructions)
 
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
